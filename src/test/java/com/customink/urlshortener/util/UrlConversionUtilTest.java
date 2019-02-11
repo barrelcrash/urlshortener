@@ -13,4 +13,10 @@ public class UrlConversionUtilTest {
 		assertEquals("bXiv", UrlConversionUtil.convertToShortUrl(273541L));
 	}
 
+	@Test
+	public void testConvertsFromBase52() {
+		assertEquals(99L, UrlConversionUtil.convertToUrlId("bV"));
+		assertEquals(10000L, UrlConversionUtil.convertToUrlId("dKq"));
+		assertEquals(273541L, UrlConversionUtil.convertToUrlId("bXiv"));
+	}
 }

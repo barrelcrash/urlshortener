@@ -41,7 +41,13 @@ public class UrlConversionUtil {
 	 * @return
 	 */
 	public static long convertToUrlId(String shortUrl) {
-		// TODO Auto-generated method stub
-		return 0;
+		String[] split = shortUrl.split("");
+		long result = 0;
+		for (int i = 0; i < split.length; i++) {
+			int pos = BASE_DIGITS.indexOf(split[i]);
+			int exp = split.length - 1 - i;
+			result += pos * Math.pow(BASE, exp);
+		}
+		return result;
 	}
 }
