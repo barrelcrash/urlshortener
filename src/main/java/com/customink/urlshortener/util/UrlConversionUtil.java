@@ -15,21 +15,27 @@ public class UrlConversionUtil {
 	 */
 	public static String convertToShortUrl(long id) {
 		
+		String[] digitsArray = BASE_DIGITS.split(BLANK);
+		
 		int remainder = Math.toIntExact(id % BASE);
-
 		int dividend = Math.toIntExact(id / BASE);
 		
 		String out = BLANK;
 		
 		while (remainder > 0) {
 			
-			String nextDigit = BASE_DIGITS.substring(remainder, remainder + 1);
-			
+			// remainder determines the index digit
+			String nextDigit = digitsArray[remainder];
 			out = nextDigit + out;
 			
+			// recalculate
 			remainder = Math.toIntExact(dividend % BASE);
-			
 			dividend = Math.toIntExact(dividend / BASE);
+		}
+		
+		// prepend with `0` until it is at least six digits
+		while (out.length() < 6) {
+			out = digitsArray[0] + out;
 		}
 		
 		return out;

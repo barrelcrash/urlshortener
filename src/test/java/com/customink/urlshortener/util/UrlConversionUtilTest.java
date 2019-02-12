@@ -8,14 +8,15 @@ public class UrlConversionUtilTest {
 	
 	@Test
 	public void testConvertsToBase52() {
-		assertEquals("bV", UrlConversionUtil.convertToShortUrl(99L));
-		assertEquals("dKq", UrlConversionUtil.convertToShortUrl(10000L));
-		assertEquals("bXiv", UrlConversionUtil.convertToShortUrl(273541L));
+		assertEquals("aaaabV", UrlConversionUtil.convertToShortUrl(99L));
+		assertEquals("aaadKq", UrlConversionUtil.convertToShortUrl(10000L));
+		assertEquals("aabXiv", UrlConversionUtil.convertToShortUrl(273541L));
 	}
 
 	@Test
 	public void testConvertsFromBase52() {
 		assertEquals(99L, UrlConversionUtil.convertToUrlId("bV"));
+		assertEquals(99L, UrlConversionUtil.convertToUrlId("aaaabV"));
 		assertEquals(10000L, UrlConversionUtil.convertToUrlId("dKq"));
 		assertEquals(273541L, UrlConversionUtil.convertToUrlId("bXiv"));
 	}
