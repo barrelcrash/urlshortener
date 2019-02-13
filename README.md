@@ -10,7 +10,7 @@ When URLs are submitted to the service, it is internally assigned a numerical ID
 
 * `/short/shortenURL`
   * Shortens a URL to a six-character string.
-* `/short/get/[shortURL]` (Pending)
+* `/short/get/[shortURL]
   * Retrieves the value of the original URL that `shortURL` represents.
 * `/short/[shortURL]` (Pending)
   * Redirects the user to the original URL that `shortURL` represents.
