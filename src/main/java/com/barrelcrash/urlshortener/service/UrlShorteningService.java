@@ -6,4 +6,6 @@ public interface UrlShorteningService {
 
 	UrlDTO shortenUrl(UrlDTO urlDTO);
 
+	UrlDTO getOriginUrl(String shortUrl);
+
 }

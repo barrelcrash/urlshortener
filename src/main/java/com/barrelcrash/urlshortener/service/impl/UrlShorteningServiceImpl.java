@@ -9,15 +9,17 @@ import com.barrelcrash.urlshortener.dao.UrlDAO;
 import com.barrelcrash.urlshortener.dto.UrlDTO;
 import com.barrelcrash.urlshortener.jpa.Url;
 import com.barrelcrash.urlshortener.service.UrlShorteningService;
+import com.barrelcrash.urlshortener.util.UrlConversionUtil;
 
 @Service
 public class UrlShorteningServiceImpl implements UrlShorteningService {
 	
-	private static final String BLANK = "";
-	
 	@Autowired
 	UrlDAO urlDAO;
 
+	/**
+	 * Shorten a URL, persist it, and return the result.
+	 */
 	@Override
 	public UrlDTO shortenUrl(UrlDTO urlDTO) {
 		
@@ -38,4 +40,20 @@ public class UrlShorteningServiceImpl implements UrlShorteningService {
 		return urlDTO;
 	}
 
+	/**
+	 * Retrieve the originUrl for a given shortUrl.
+	 */
+	@Override
+	public UrlDTO getOriginUrl(String shortUrl) {
+		
+		Long urlId = UrlConversionUtil.convertToUrlId(shortUrl);
+		
+		Optional<Url> found = urlDAO.findById(urlId);
+		
+		if (found.isPresent()) {
+			return new UrlDTO(found.get());
+		}
+		
+		return null;
+	}
 }
