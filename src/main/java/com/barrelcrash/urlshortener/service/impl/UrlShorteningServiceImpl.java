@@ -1,14 +1,14 @@
-package com.customink.urlshortener.service.impl;
+package com.barrelcrash.urlshortener.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.customink.urlshortener.dao.UrlDAO;
-import com.customink.urlshortener.dto.UrlDTO;
-import com.customink.urlshortener.jpa.Url;
-import com.customink.urlshortener.service.UrlShorteningService;
+import com.barrelcrash.urlshortener.dao.UrlDAO;
+import com.barrelcrash.urlshortener.dto.UrlDTO;
+import com.barrelcrash.urlshortener.jpa.Url;
+import com.barrelcrash.urlshortener.service.UrlShorteningService;
 
 @Service
 public class UrlShorteningServiceImpl implements UrlShorteningService {

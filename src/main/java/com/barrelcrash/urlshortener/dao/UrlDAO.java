@@ -1,10 +1,10 @@
-package com.customink.urlshortener.dao;
+package com.barrelcrash.urlshortener.dao;
 
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.customink.urlshortener.jpa.Url;
+import com.barrelcrash.urlshortener.jpa.Url;
 
 public interface UrlDAO extends CrudRepository<Url, Long> {
 

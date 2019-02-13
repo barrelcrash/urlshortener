@@ -1,4 +1,4 @@
-package com.customink.urlshortener.jpa;
+package com.barrelcrash.urlshortener.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import com.customink.urlshortener.util.UrlConversionUtil;
+import com.barrelcrash.urlshortener.util.UrlConversionUtil;
 
 @Entity
 @Table(name="URL")

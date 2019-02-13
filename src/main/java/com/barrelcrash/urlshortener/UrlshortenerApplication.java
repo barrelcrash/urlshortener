@@ -1,4 +1,4 @@
-package com.customink.urlshortener;
+package com.barrelcrash.urlshortener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

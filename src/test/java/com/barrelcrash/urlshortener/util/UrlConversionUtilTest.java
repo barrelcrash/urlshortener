@@ -1,8 +1,10 @@
-package com.customink.urlshortener.util;
+package com.barrelcrash.urlshortener.util;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.barrelcrash.urlshortener.util.UrlConversionUtil;
 
 public class UrlConversionUtilTest {
 	

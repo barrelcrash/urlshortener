@@ -1,4 +1,4 @@
-package com.customink.urlshortener.util;
+package com.barrelcrash.urlshortener.util;
 
 public class UrlConversionUtil {
 	

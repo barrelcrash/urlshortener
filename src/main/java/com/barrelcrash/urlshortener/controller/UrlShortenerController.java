@@ -1,4 +1,4 @@
-package com.customink.urlshortener.controller;
+package com.barrelcrash.urlshortener.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.customink.urlshortener.dto.UrlDTO;
-import com.customink.urlshortener.service.UrlShorteningService;
+import com.barrelcrash.urlshortener.dto.UrlDTO;
+import com.barrelcrash.urlshortener.service.UrlShorteningService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,8 +1,8 @@
-package com.customink.urlshortener.dto;
+package com.barrelcrash.urlshortener.dto;
 
 import java.util.Map;
 
-import com.customink.urlshortener.jpa.Url;
+import com.barrelcrash.urlshortener.jpa.Url;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class UrlDTO {
