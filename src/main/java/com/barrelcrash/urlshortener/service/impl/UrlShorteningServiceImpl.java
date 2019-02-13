@@ -41,10 +41,10 @@ public class UrlShorteningServiceImpl implements UrlShorteningService {
 	}
 
 	/**
-	 * Retrieve the originUrl for a given shortUrl.
+	 * Get the origin and short URL for a given shortUrl.
 	 */
 	@Override
-	public UrlDTO getOriginUrl(String shortUrl) {
+	public UrlDTO getUrl(String shortUrl) {
 		
 		Long urlId = UrlConversionUtil.convertToUrlId(shortUrl);
 		
@@ -52,6 +52,23 @@ public class UrlShorteningServiceImpl implements UrlShorteningService {
 		
 		if (found.isPresent()) {
 			return new UrlDTO(found.get());
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Get the originUrl for a given shortUrl.
+	 */
+	@Override
+	public String getOriginUrl(String shortUrl) {
+		
+		Long urlId = UrlConversionUtil.convertToUrlId(shortUrl);
+		
+		Optional<Url> found = urlDAO.findById(urlId);
+		
+		if (found.isPresent()) {
+			return found.get().getOriginUrl();
 		}
 		
 		return null;
