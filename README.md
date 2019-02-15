@@ -12,5 +12,5 @@ When URLs are submitted to the service, it is internally assigned a numerical ID
   * Shortens a URL to a six-character string.
 * `/short/get/[shortURL]
   * Retrieves the value of the original URL that `shortURL` represents.
-* `/short/[shortURL]` (Pending)
+* `/short/[shortURL]`
   * Redirects the user to the original URL that `shortURL` represents.
