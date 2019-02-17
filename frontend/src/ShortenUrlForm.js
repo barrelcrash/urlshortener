@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class ShortenUrlForm extends Component {
@@ -20,25 +19,51 @@ class ShortenUrlForm extends Component {
   }
 
   handleSubmit(event) {
-
+    (async () => {
+      const response = await fetch(`http://localhost:8080/short/shortenUrl`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          // 'Access-Control-Allow-Origin': 'http://localhost:3000'
+        },
+        body: JSON.stringify({
+          originUrl: this.state.value,
+          shortUrl: null
+        })
+      });
+      const content = await response.json();
+      this.setState({
+        shortUrl: content.shortUrl
+      });
+    })();
     event.preventDefault();
   }
 
   
   render () {
+    const shortLink = `http://localhost:8080/short/${this.state.shortUrl}`;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Shorten a url:
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Shorten a url:
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange} />
+          </label>
           <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange} />
-        </label>
-        <input
-          type="submit"
-          value="Shorten" />
-      </form>
+            type="submit"
+            value="Shorten" />
+        </form>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={shortLink}>
+          {this.state.shortUrl.length > 0 ? shortLink : ''}
+        </a>
+      </div>
     );
   }
 }

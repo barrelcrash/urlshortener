@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,9 +32,8 @@ public class UrlShortenerController {
 	@Autowired
 	private UrlShorteningService urlShorteningService;
 
-	// TODO: add error handling
-	
 	@ApiOperation(value = "Shorten a URL")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping(value = "/shortenUrl", produces="application/json")
 	public UrlDTO shortenUrl(HttpServletResponse response, @RequestBody UrlDTO urlDTO) {
 		LOG.info("Shortening incoming URL: {}", urlDTO.getOriginUrl());
@@ -41,6 +41,7 @@ public class UrlShortenerController {
 	}
 
 	@ApiOperation(value = "Get the originUrl for a given shortUrl")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/get/{shortUrl}")
 	public UrlDTO getOriginUrl(HttpServletRequest request, HttpServletResponse response, @PathVariable("shortUrl") String shortUrl) {
 		LOG.info("Retrieving original URL for shortURL: {}", shortUrl);
@@ -48,6 +49,7 @@ public class UrlShortenerController {
 	}
 
 	@ApiOperation(value = "Get redirect from a shortened URL")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/{shortUrl}")
 	public ModelAndView redirectToOriginUrl(ModelMap model, @PathVariable("shortUrl") String shortUrl) {
 		String originUrl = urlShorteningService.getOriginUrl(shortUrl);
