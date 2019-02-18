@@ -88,7 +88,7 @@ public class UrlShorteningServiceImpl implements UrlShorteningService {
 		if (found.isPresent()) {
 			LOG.info("Found origin URL `{}` for short URL `{}`",
 					found.get().getOriginUrl(), shortUrl);
-			return found.get().getOriginUrl();
+			return UrlConversionUtil.normalizeUrlFormat(found.get().getOriginUrl());
 		}
 		
 		LOG.info("No URL for `{}` found", shortUrl);

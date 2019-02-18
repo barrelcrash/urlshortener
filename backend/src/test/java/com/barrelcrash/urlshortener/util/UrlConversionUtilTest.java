@@ -22,4 +22,11 @@ public class UrlConversionUtilTest {
 		assertEquals(10000L, UrlConversionUtil.convertToUrlId("dKq"));
 		assertEquals(273541L, UrlConversionUtil.convertToUrlId("bXiv"));
 	}
+	
+	@Test
+	public void testValideUrlFormat() {
+		assertEquals("http://www.website.com", UrlConversionUtil.normalizeUrlFormat("www.website.com"));
+		assertEquals("http://www.website.com", UrlConversionUtil.normalizeUrlFormat("http://www.website.com"));
+		assertEquals("https://www.website.com", UrlConversionUtil.normalizeUrlFormat("https://www.website.com"));
+	}
 }

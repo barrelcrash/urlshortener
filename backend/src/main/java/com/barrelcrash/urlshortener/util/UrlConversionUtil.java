@@ -56,4 +56,12 @@ public class UrlConversionUtil {
 		}
 		return result;
 	}
+	
+	public static String normalizeUrlFormat(String url) {
+		String result = url;
+		if (!(result.contains("http://") || result.contains("https://"))) {
+			result = "http://" + result;
+		}
+		return result;
+	}
 }
