@@ -39,22 +39,28 @@ class GetUrlForm extends Component {
   
   render () {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.handleSubmit}>
           <label>
-            Retrieve a url:
+            <span  
+              className="form-member">
+              Retrieve a url:
+            </span>
             <input
               type="text"
+              className="form-member"
               value={this.state.value}
               onChange={this.handleChange} />
           </label>
           <input
             type="submit"
-            value="Shorten" />
+            className="form-member"
+            value="Retrieve" />
         </form>
         <a
           target="_blank"
           rel="noopener noreferrer"
+          className="form-link"
           href={this.state.originUrl}>
           {this.state.originUrl}
         </a>

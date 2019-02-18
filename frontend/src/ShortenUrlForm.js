@@ -43,22 +43,28 @@ class ShortenUrlForm extends Component {
   render () {
     const shortLink = `http://localhost:8080/short/${this.state.shortUrl}`;
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.handleSubmit}>
           <label>
-            Shorten a url:
+            <span
+              className="form-member">
+              Shorten a url:
+            </span>
             <input
               type="text"
+              className="form-member"
               value={this.state.value}
               onChange={this.handleChange} />
           </label>
           <input
             type="submit"
+            className="form-member"
             value="Shorten" />
         </form>
         <a
           target="_blank"
           rel="noopener noreferrer"
+          className="form-link"
           href={shortLink}>
           {this.state.shortUrl.length > 0 ? shortLink : ''}
         </a>

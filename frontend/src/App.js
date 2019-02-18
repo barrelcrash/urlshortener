@@ -7,8 +7,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ShortenUrlForm />
-        <GetUrlForm />
+        <h1>URL Shortener</h1>
+        <div className="form-container">
+          <ShortenUrlForm />
+          <GetUrlForm />
+        </div>
       </div>
     );
   }
