@@ -57,13 +57,10 @@ class GetUrlForm extends Component {
             className="form-member"
             value="Retrieve" />
         </form>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          className="form-link"
-          href={this.state.originUrl}>
+        <span
+          className="form-link">
           {this.state.originUrl}
-        </a>
+        </span>
       </div>
     );
   }
