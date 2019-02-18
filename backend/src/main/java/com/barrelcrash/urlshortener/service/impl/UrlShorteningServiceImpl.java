@@ -65,7 +65,7 @@ public class UrlShorteningServiceImpl implements UrlShorteningService {
 		Optional<Url> found = urlDAO.findById(urlId);
 		
 		if (found.isPresent()) {
-		LOG.info("Found URL `{}`", shortUrl);
+			LOG.info("Found URL `{}` for originUrl `{}`", shortUrl, found.get().getOriginUrl());
 			return new UrlDTO(found.get());
 		}
 		

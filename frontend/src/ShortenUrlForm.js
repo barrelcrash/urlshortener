@@ -24,8 +24,7 @@ class ShortenUrlForm extends Component {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': 'http://localhost:3000'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           originUrl: this.state.value,
